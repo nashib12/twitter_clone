@@ -1,11 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-class StudentForm(models.Model):
-    name = models.CharField(max_length=200)
-    age = models.IntegerField()
-    email = models.EmailField()
-    address = models.CharField(max_length=200)
-    phonemumber = models.IntegerField()
-    message = models.TextField()
+# User prfile with images Authication
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    dob = models.DateField()
+    gender = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="Profile-pics")
+    
+    
+
+    
     

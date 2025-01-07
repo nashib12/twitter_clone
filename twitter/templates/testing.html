@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Image upload</h1>
+    <form method="POST" action="{% url 'testing' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit">
+    </form>
+
+    {% for i in image  %}
+    <h1>{{i.id}}: {{i.name}}</h1>
+      <img src="{{i.image.url}}" alt="">
+    {% endfor %}
+</body>
+</html>
